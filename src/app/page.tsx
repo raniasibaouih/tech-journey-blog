@@ -10,56 +10,61 @@ type AllPostsData = {
   id: string
 }[]
 
-// Change this url to change the image!
-const imageUrl = '/images/snorlax.jpg';
+// Change this URL to swap the main image.
+const imageUrl = '/images/mountain.jpg';
 
 export default function Home() {
   const allPostsData: AllPostsData = getSortedPostsData()
 
   return (
-      <div>
-        <section>
-          <p className={'prose'}>
-            Hey I&apos;m Rania. This is my site.
-          </p>
-          <div className={'my-4'}>
-            <i>
-              Check out the repo{' '}
-                <Link href={'https://github.com/ludu12/tech-journey-blog'}>
-                  <button className={'btn btn-sm btn-primary'}>
-                      <span className={'text-primary-content'}>
-                        here
-                      </span>
-                  </button>
+      <div className={'space-y-8'}>
+        <section className={'rounded-[2rem] border border-amber-200/70 bg-gradient-to-br from-amber-100 via-rose-100 to-indigo-100 p-6 shadow-xl'}>
+          <div className={'grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center'}>
+            <div className={'prose prose-slate max-w-none'}>
+              <p className={'mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-indigo-700'}>
+                Welcome
+              </p>
+              <h1 className={'text-4xl font-semibold text-slate-900'}>
+                A bright little corner for play and ideas.
+              </h1>
+              <p className={'text-lg leading-8 text-slate-700'}>
+                Play checkers, jump into a simple AI match, or invite a friend for a local two-player game.
+              </p>
+              <div className={'mt-4 flex flex-wrap gap-3'}>
+                <Link href={'/checkers'}>
+                  <button className={'btn btn-primary'}>Play checkers</button>
                 </Link>
-            </i>
+                <Link href={'https://github.com/ludu12/tech-journey-blog'}>
+                  <button className={'btn btn-outline btn-secondary'}>View the repo</button>
+                </Link>
+              </div>
+            </div>
+
+            <div className={'overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-3 shadow-lg'}>
+              <Image className={'h-full w-full rounded-[1.1rem] object-cover'} src={imageUrl} alt={'Featured homepage image'} width={700} height={500} />
+            </div>
           </div>
         </section>
 
-        <div className={'my-4'}>
-          <Image className={'rounded'} src={imageUrl} alt={'My Image'} width={500}
-                 height={500}/>
-        </div>
-
-        <section className={'prose my-8'}>
-          <h2>Play checkers</h2>
-          <p>
-            I turned the site into a small game hub with a checkers board you can play against a simple AI or with a friend.
+        <section className={'rounded-[1.5rem] border border-emerald-200 bg-emerald-50 p-6 shadow-md'}>
+          <h2 className={'text-2xl font-semibold text-emerald-900'}>Play checkers</h2>
+          <p className={'mt-2 text-lg leading-8 text-emerald-800'}>
+            Jump into a simple AI match or invite a friend for a local two-player game.
           </p>
           <Link href={'/checkers'}>
-            <button className={'btn btn-primary'}>Open checkers</button>
+            <button className={'btn btn-success mt-4'}>Open checkers</button>
           </Link>
         </section>
 
-        <section className={'prose'}>
-          <h2>Recent posts</h2>
-          <ul>
+        <section className={'rounded-[1.5rem] border border-slate-200 bg-white/80 p-6 shadow-md'}>
+          <h2 className={'text-2xl font-semibold text-slate-900'}>Recent posts</h2>
+          <ul className={'mt-3 space-y-3'}>
             {allPostsData.map(({id, date, title}) => (
                 <li key={id}>
                   <div>
-                    <Link href={`/posts/${id}`}>{title}</Link>
+                    <Link className={'font-medium text-indigo-700 hover:text-indigo-900'} href={`/posts/${id}`}>{title}</Link>
                     <br/>
-                    <small>
+                    <small className={'text-slate-500'}>
                       <Date dateString={date}/>
                     </small>
                   </div>
