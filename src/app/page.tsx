@@ -19,26 +19,21 @@ export default function Home() {
 
   return (
       <div className={'space-y-8'}>
-        <section className={'rounded-[2rem] border border-amber-200/70 bg-gradient-to-br from-amber-100 via-rose-100 to-indigo-100 p-6 shadow-xl'}>
+        <section className={'rounded-[2rem] border border-stone-300 bg-stone-50 p-6 shadow-md'}>
           <div className={'grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center'}>
             <div className={'prose prose-slate max-w-none'}>
-              <p className={'mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-indigo-700'}>
+              <p className={'mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-stone-600'}>
                 Welcome
               </p>
-              <h1 className={'text-4xl font-semibold text-slate-900'}>
-                A bright little corner for play and ideas.
+              <h1 className={'text-4xl font-semibold text-stone-900'}>
+                Checkers made simple.
               </h1>
-              <p className={'text-lg leading-8 text-slate-700'}>
-                Play checkers, jump into a simple AI match, or invite a friend for a local two-player game.
+              <p className={'text-lg leading-8 text-stone-700'}>
+                Play a quick match against the AI or challenge a friend in two-player mode.
               </p>
-              <div className={'mt-4'}>
-                <Link href={'/checkers'}>
-                  <button className={'btn btn-primary'}>Play checkers</button>
-                </Link>
-              </div>
             </div>
 
-            <div className={'overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-3 shadow-lg'}>
+            <div className={'overflow-hidden rounded-[1.5rem] border border-stone-300 bg-white p-3 shadow-sm'}>
               <Image className={'h-full w-full rounded-[1.1rem] object-cover'} src={imageUrl} alt={'Featured homepage image'} width={700} height={500} />
             </div>
           </div>
