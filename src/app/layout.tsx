@@ -10,11 +10,9 @@ TODO:  Change these things along with:
   - favicon.ico in /public
  */
 const font = Karla({ weight: '400', subsets: ['latin']})
-const title = 'Rania\'s Site';
-const description = 'This my personal site';
+const title = 'Checkers Lounge';
+const description = 'A welcoming place to play checkers against a simple AI or a friend';
 const links = [
-  {title: 'Pokemon', href: '/pokemon'},
-  {title: 'Rick and Morty', href: '/rick-and-morty'},
   {title: 'Checkers', href: '/checkers'}
 ];
 const SocialLinks = {

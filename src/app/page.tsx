@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
         <section className={'prose'}>
-          <h2>Blog</h2>
+          <h2>Recent posts</h2>
           <ul>
             {allPostsData.map(({id, date, title}) => (
                 <li key={id}>
