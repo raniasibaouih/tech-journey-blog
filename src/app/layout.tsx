@@ -10,11 +10,12 @@ TODO:  Change these things along with:
   - favicon.ico in /public
  */
 const font = Karla({ weight: '400', subsets: ['latin']})
-const title = 'Luke\'s Site';
+const title = 'Rania\'s Site';
 const description = 'This my personal site';
 const links = [
   {title: 'Pokemon', href: '/pokemon'},
-  {title: 'Rick and Morty', href: '/rick-and-morty'}
+  {title: 'Rick and Morty', href: '/rick-and-morty'},
+  {title: 'Checkers', href: '/checkers'}
 ];
 const SocialLinks = {
   twitter: 'https://x.com/dunscombe_luke',

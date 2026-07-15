@@ -20,7 +20,7 @@ export default function Home() {
       <div>
         <section>
           <p className={'prose'}>
-            Hey I&apos;m Luke. This is my site.
+            Hey I&apos;m Rania. This is my site.
           </p>
           <div className={'my-4'}>
             <i>
@@ -40,6 +40,16 @@ export default function Home() {
           <Image className={'rounded'} src={imageUrl} alt={'My Image'} width={500}
                  height={500}/>
         </div>
+
+        <section className={'prose my-8'}>
+          <h2>Play checkers</h2>
+          <p>
+            I turned the site into a small game hub with a checkers board you can play against a simple AI or with a friend.
+          </p>
+          <Link href={'/checkers'}>
+            <button className={'btn btn-primary'}>Open checkers</button>
+          </Link>
+        </section>
 
         <section className={'prose'}>
           <h2>Blog</h2>
