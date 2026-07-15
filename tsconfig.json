@@ -7,6 +7,11 @@
       "esnext"
     ],
     "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,12 +28,7 @@
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",
