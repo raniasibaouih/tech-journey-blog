@@ -1,8 +1,8 @@
 :root {
-  color-scheme: dark;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #020617;
-  color: #e2e8f0;
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #fdf7ff;
+  color: #4338ca;
 }
 
 * {
@@ -17,7 +17,7 @@ body {
 
 body {
   line-height: 1.6;
-  background: radial-gradient(circle at top left, #1d4ed8 0%, #020617 45%, #020617 100%);
+  background: linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 45%, #ecfeff 100%);
 }
 
 .page-shell {
@@ -31,10 +31,16 @@ body {
   max-width: 42rem;
   margin: 0 auto;
   padding: 2rem;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 1.5rem;
-  box-shadow: 0 30px 90px rgba(2, 6, 23, 0.35);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(192, 132, 252, 0.22);
+  border-radius: 1.6rem;
+  box-shadow: 0 20px 60px rgba(129, 140, 248, 0.16);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 }
 
 h1 {
@@ -52,11 +58,11 @@ a {
 
 .hero-card {
   max-width: 760px;
-  background: rgba(15, 23, 42, 0.82);
-  border: 1px solid rgba(129, 140, 248, 0.25);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(192, 132, 252, 0.24);
   border-radius: 2rem;
   padding: 2.5rem;
-  box-shadow: 0 35px 120px rgba(2, 6, 23, 0.4);
+  box-shadow: 0 25px 80px rgba(167, 139, 250, 0.18);
 }
 
 .hero-card h1 {
@@ -66,7 +72,7 @@ a {
 }
 
 .hero-card p {
-  color: #cbd5e1;
+  color: #6b7280;
 }
 
 .hero-actions {
@@ -85,13 +91,13 @@ a {
 }
 
 .primary-link {
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
   color: white;
 }
 
 .secondary-link {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f8fafc;
+  background: rgba(244, 114, 182, 0.12);
+  color: #7c3aed;
 }
 
 .primary-link:hover,
@@ -101,8 +107,8 @@ a {
 
 .checkers-page .content {
   max-width: 1200px;
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.94) 0%, rgba(30, 41, 59, 0.95) 100%);
-  box-shadow: 0 20px 100px rgba(2, 6, 23, 0.4);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 245, 255, 0.97) 100%);
+  box-shadow: 0 20px 80px rgba(167, 139, 250, 0.16);
 }
 
 .checkers-shell {
@@ -113,12 +119,12 @@ a {
 
 .checkers-card {
   width: min(100%, 1120px);
-  background: rgba(255, 255, 255, 0.97);
-  color: #0f172a;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  color: #4338ca;
+  border: 1px solid rgba(192, 132, 252, 0.2);
   border-radius: 30px;
   padding: 2rem;
-  box-shadow: 0 30px 70px rgba(2, 6, 23, 0.12);
+  box-shadow: 0 24px 70px rgba(167, 139, 250, 0.16);
   display: grid;
   gap: 1.5rem;
 }
@@ -142,7 +148,7 @@ a {
   font-size: 0.84rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #4f46e5;
+  color: #ec4899;
   font-weight: 700;
 }
 
@@ -155,8 +161,8 @@ a {
 .mode-control button,
 .checkers-controls button {
   border: none;
-  background: #eef2ff;
-  color: #1e293b;
+  background: #fdf2f8;
+  color: #6d28d9;
   padding: 0.9rem 1.25rem;
   border-radius: 999px;
   font-weight: 700;
@@ -166,7 +172,7 @@ a {
 
 .mode-control button.active,
 .checkers-controls button:hover {
-  background: linear-gradient(135deg, #4338ca, #2563eb);
+  background: linear-gradient(135deg, #a78bfa, #f472b6);
   color: white;
   transform: translateY(-1px);
 }
@@ -174,11 +180,11 @@ a {
 .checkers-status-bar {
   display: grid;
   gap: 0.75rem;
-  background: #eef2ff;
+  background: linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 100%);
   padding: 1rem 1.25rem;
   border-radius: 20px;
-  color: #0f172a;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #5b21b6;
+  border: 1px solid rgba(192, 132, 252, 0.25);
 }
 
 .turn-pill {
@@ -192,13 +198,13 @@ a {
 }
 
 .turn-pill.turn-red {
-  background: #fee2e2;
-  color: #991b1b;
+  background: #ffe4f0;
+  color: #be185d;
 }
 
 .turn-pill.turn-black {
-  background: #e5e7eb;
-  color: #111827;
+  background: #ede9fe;
+  color: #5b21b6;
 }
 
 .checkers-controls {
@@ -302,11 +308,11 @@ a {
 }
 
 .checkers-hints {
-  background: #fff;
+  background: linear-gradient(145deg, #fff7fb 0%, #fdfcff 100%);
   border-radius: 24px;
   padding: 1.5rem;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(192, 132, 252, 0.18);
+  box-shadow: 0 16px 40px rgba(167, 139, 250, 0.1);
 }
 
 .checkers-hints h3 {
@@ -343,10 +349,10 @@ a {
 
 .hint-box {
   margin-top: 1rem;
-  background: #eef2ff;
+  background: #fdf2f8;
   border-radius: 18px;
   padding: 1rem;
-  border: 1px solid rgba(99, 102, 241, 0.18);
+  border: 1px solid rgba(244, 114, 182, 0.2);
 }
 
 @media (max-width: 900px) {
