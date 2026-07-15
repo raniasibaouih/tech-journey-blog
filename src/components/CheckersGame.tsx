@@ -42,7 +42,7 @@ const playerName = (player: Player) => (player === 1 ? "Red" : "Black");
 const formatCoordinates = (x: number, y: number) => `${String.fromCharCode(65 + y)}${BOARD_SIZE - x}`;
 
 const promotePiece = (piece: Piece, x: number) => {
-  if (!piece.king && ((piece.player === 1 && x === BOARD_SIZE - 1) || (piece.player === 2 && x === 0))) {
+  if (!piece.king && ((piece.player === 1 && x === 0) || (piece.player === 2 && x === BOARD_SIZE - 1))) {
     return { ...piece, king: true };
   }
   return piece;
@@ -60,12 +60,12 @@ const getDirections = (piece: Piece) => {
 
   return piece.player === 1
     ? ([
-        [1, -1],
-        [1, 1],
-      ] as const)
-    : ([
         [-1, -1],
         [-1, 1],
+      ] as const)
+    : ([
+        [1, -1],
+        [1, 1],
       ] as const);
 };
 
@@ -274,6 +274,7 @@ export default function CheckersGame() {
   const [showGuides, setShowGuides] = useState(true);
   const [status, setStatus] = useState("Red begins. Capture pieces and crown your king.");
   const [moveCount, setMoveCount] = useState(0);
+  const [aiThinking, setAiThinking] = useState(false);
 
   const allMoves = useMemo(() => getAllMoves(board, currentPlayer), [board, currentPlayer]);
 
@@ -318,6 +319,7 @@ export default function CheckersGame() {
     setSelected(null);
     setCurrentPlayer(nextPlayer);
     setMoveCount((value) => value + 1);
+    setAiThinking(false);
     setStatus(gameOver ? `${playerName(nextPlayer)} has no moves. ${playerName(currentPlayer)} wins!` : `${playerName(nextPlayer)}'s turn.`);
   };
 
@@ -358,12 +360,21 @@ export default function CheckersGame() {
       return;
     }
 
-    const aiChoice: { fromX: number; fromY: number; move: MoveOption } | null = chooseAIMove(board, 2, 4);
-    if (!aiChoice) {
-      return;
-    }
+    setAiThinking(true);
+    setStatus("Black is thinking...");
 
-    applyMove(aiChoice.fromX, aiChoice.fromY, aiChoice.move);
+    window.setTimeout(() => {
+      const aiChoice: { fromX: number; fromY: number; move: MoveOption } | null = chooseAIMove(board, 2, 4);
+      if (!aiChoice) {
+        setAiThinking(false);
+        setStatus("Black has no legal moves. Red wins!");
+        setCurrentPlayer(1);
+        return;
+      }
+
+      applyMove(aiChoice.fromX, aiChoice.fromY, aiChoice.move);
+      setAiThinking(false);
+    }, 650);
   };
 
   useEffect(() => {
@@ -379,11 +390,13 @@ export default function CheckersGame() {
     setCurrentPlayer(1);
     setSelected(null);
     setMoveCount(0);
+    setAiThinking(false);
     setStatus("Red begins. Capture pieces and crown your king.");
   };
 
   const modeLabel = mode === "1P" ? "Single player" : "Two player";
-  const statusLabel = gameOver ? `${playerName(currentPlayer === 1 ? 2 : 1)} wins!` : `${playerName(currentPlayer)} to move`;
+  const turnBadge = gameOver ? `${playerName(currentPlayer === 1 ? 2 : 1)} wins!` : `${playerName(currentPlayer)} to move`;
+  const turnTone = currentPlayer === 1 ? "turn-red" : "turn-black";
 
   return (
     <section className="checkers-shell">
@@ -410,8 +423,9 @@ export default function CheckersGame() {
           <div>
             <strong>Status:</strong> {status}
           </div>
-          <div>
-            <strong>Turn:</strong> {statusLabel}
+          <div className={`turn-pill ${turnTone}`}>
+            <strong>Turn:</strong> {turnBadge}
+            {aiThinking && mode === "1P" && currentPlayer === 2 ? " • Black is thinking" : ""}
           </div>
         </div>
 
