@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Date from '@/components/Date'
+import HomeCheckersPreview from '@/components/HomeCheckersPreview'
 
 import {getSortedPostsData} from '@/lib/posts'
 import Image from "next/image";
@@ -30,12 +31,9 @@ export default function Home() {
               <p className={'text-lg leading-8 text-slate-700'}>
                 Play checkers, jump into a simple AI match, or invite a friend for a local two-player game.
               </p>
-              <div className={'mt-4 flex flex-wrap gap-3'}>
+              <div className={'mt-4'}>
                 <Link href={'/checkers'}>
                   <button className={'btn btn-primary'}>Play checkers</button>
-                </Link>
-                <Link href={'https://github.com/ludu12/tech-journey-blog'}>
-                  <button className={'btn btn-outline btn-secondary'}>View the repo</button>
                 </Link>
               </div>
             </div>
@@ -46,15 +44,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={'rounded-[1.5rem] border border-emerald-200 bg-emerald-50 p-6 shadow-md'}>
-          <h2 className={'text-2xl font-semibold text-emerald-900'}>Play checkers</h2>
-          <p className={'mt-2 text-lg leading-8 text-emerald-800'}>
-            Jump into a simple AI match or invite a friend for a local two-player game.
-          </p>
-          <Link href={'/checkers'}>
-            <button className={'btn btn-success mt-4'}>Open checkers</button>
-          </Link>
-        </section>
+        <HomeCheckersPreview />
 
         <section className={'rounded-[1.5rem] border border-slate-200 bg-white/80 p-6 shadow-md'}>
           <h2 className={'text-2xl font-semibold text-slate-900'}>Recent posts</h2>
